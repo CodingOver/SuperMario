@@ -1,15 +1,6 @@
 import SpriteSheet from "./SpriteSheet.js"
 
 
-function loadImage(url) {
-    return new Promise(resolve => {
-        const image = new Image()
-        image.addEventListener("load", () => {
-            resolve(image)
-        });
-        image.src = url
-    });
-}
 const canvas = document.getElementById("screen")
 const ctx = canvas.getContext("2d")
 
