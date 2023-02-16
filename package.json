@@ -1,0 +1,19 @@
+{
+  "name": "supermario",
+  "version": "1.0.0",
+  "description": "Building Super Mario Game",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CodingOver/SuperMario.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CodingOver/SuperMario/issues"
+  },
+  "homepage": "https://github.com/CodingOver/SuperMario#readme"
+}
