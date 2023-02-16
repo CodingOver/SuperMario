@@ -1,14 +1,33 @@
 import SpriteSheet from "./SpriteSheet.js"
+import { loadImage, loadLevel } from "./loaders.js"
 
+function drawBackground(background, ctx, sprites) {
+    background.ranges.forEach(([x1, x2, y1, y2]) => {
+        for (let x = x1; x < x2; ++x) {
+            for (let y = y1; y < y2; ++y) {
+                sprites.drawTile(background.tile, ctx, x, y)
+            }
+        }
+    })
+}
 
 const canvas = document.getElementById("screen")
 const ctx = canvas.getContext("2d")
 
-ctx.fillRect(0, 0, 50, 50)
 
 loadImage("/SuperMario/public/img/tiles.png")
     .then(image => {
         const sprites = new SpriteSheet(image, 16, 16)
         sprites.define("ground", 0, 0)
-        sprites.draw("ground", ctx, 45, 62)
-    })
+        sprites.define("sky", 3, 23)
+
+        loadLevel("1-1")
+            .then(level => {
+                level.backgrounds.forEach(background => {
+                    drawBackground(background, ctx, sprites)
+                });
+
+
+                console.log(level.backgrounds[1])
+            });
+    });
